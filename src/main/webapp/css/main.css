@@ -26,6 +26,19 @@ h1 {
 
 .quiz_title h4 {
     text-align: center;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.quiz_image {
+    width: 440px;
+    margin-bottom: 10px;
+}
+
+.quiz_image img {
+    width: 440px;
+    min-height: 285px;
+    max-height: 285px;
 }
 
 .quiz_block_panel {
@@ -39,6 +52,7 @@ h1 {
     padding: 5px;
     border: 1px solid black;
     font-size: 20px;
+    color: black;
 }
 
 a {

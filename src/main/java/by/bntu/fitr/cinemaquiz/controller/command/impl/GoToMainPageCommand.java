@@ -17,9 +17,9 @@ public class GoToMainPageCommand implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Quiz q1 = new Quiz(1, "privvet", "", null);
-        Quiz q2 = new Quiz(2, "[poka]", "", null);
-        Quiz q3 = new Quiz(3, "zdarova", "", null);
+        Quiz q1 = new Quiz(1, "privvet", "img/тёма.jpg", null);
+        Quiz q2 = new Quiz(2, "[poka]", "img/sanya.PNG", null);
+        Quiz q3 = new Quiz(3, "zdarova", "img/sanya2.PNG", null);
 
         request.getSession().setAttribute("quizList", Arrays.asList(q1, q2, q3));
 
