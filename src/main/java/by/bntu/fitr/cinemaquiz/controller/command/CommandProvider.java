@@ -1,5 +1,7 @@
 package by.bntu.fitr.cinemaquiz.controller.command;
 
+import by.bntu.fitr.cinemaquiz.controller.command.impl.GoToMainPageCommand;
+
 import java.util.EnumMap;
 import java.util.Map;
 

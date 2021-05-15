@@ -1,6 +1,4 @@
-package by.bntu.fitr.cinemaquiz.controller.command;
-
-import by.bntu.fitr.model.entity.Quiz;
+package by.bntu.fitr.model.dao;
 
 public final class DaoProvider {
 

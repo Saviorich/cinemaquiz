@@ -1,4 +1,4 @@
-package by.bntu.fitr.cinemaquiz.controller.command;
+package by.bntu.fitr.model.service;
 
 import by.bntu.fitr.model.entity.Quiz;
 

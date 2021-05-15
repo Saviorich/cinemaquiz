@@ -1,14 +1,13 @@
-package by.bntu.fitr.cinemaquiz.controller.command;
+package by.bntu.fitr.cinemaquiz.controller.command.impl;
 
-import by.bntu.fitr.model.entity.Quiz;
+import by.bntu.fitr.cinemaquiz.controller.command.Command;
+import by.bntu.fitr.model.service.QuizService;
+import by.bntu.fitr.model.service.ServiceProvider;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class GoToMainPageCommand implements Command {
 
