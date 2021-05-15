@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Quiz {
     private long id;
+    private boolean done;
     private String title;
     private String imagePath;
     private List<Question> questionList;
@@ -20,6 +21,14 @@ public class Quiz {
 
     public long getId() {
         return id;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public void setId(long id) {

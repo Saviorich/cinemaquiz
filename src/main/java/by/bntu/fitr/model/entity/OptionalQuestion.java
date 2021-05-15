@@ -9,7 +9,7 @@ public class OptionalQuestion extends Question {
 
     private List<String> options;
 
-    public OptionalQuestion() {
+    public OptionalQuestion(long id, String title, String correctAnswer, List<String> options) {
     }
 
     public OptionalQuestion(String title, String correctAnswer, List<String> options) {
