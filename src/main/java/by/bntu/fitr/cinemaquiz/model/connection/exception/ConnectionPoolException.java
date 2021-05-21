@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.connection.exception;
+package by.bntu.fitr.cinemaquiz.model.connection.exception;
 
 public class ConnectionPoolException extends Exception {
     public ConnectionPoolException() {

@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.entity;
+package by.bntu.fitr.cinemaquiz.model.entity;
 
 public abstract class Question {
     private long id;
@@ -10,6 +10,19 @@ public abstract class Question {
 
     public Question(String title, String correctAnswer) {
         this.title = title;
+        this.correctAnswer = correctAnswer;
+    }
+
+    public Question(long id, String title, String correctAnswer) {
+        this.id = id;
+        this.title = title;
+        this.correctAnswer = correctAnswer;
+    }
+
+    public Question(long id, String title, String userAnswer, String correctAnswer) {
+        this.id = id;
+        this.title = title;
+        this.userAnswer = userAnswer;
         this.correctAnswer = correctAnswer;
     }
 
@@ -48,4 +61,6 @@ public abstract class Question {
     public boolean isCorrect() {
         return userAnswer.equalsIgnoreCase(correctAnswer);
     }
+
+    public abstract String toString();
 }

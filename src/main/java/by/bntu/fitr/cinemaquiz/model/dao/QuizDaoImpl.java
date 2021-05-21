@@ -1,11 +1,12 @@
-package by.bntu.fitr.model.dao;
+package by.bntu.fitr.cinemaquiz.model.dao;
 
-import by.bntu.fitr.model.connection.ConnectionPool;
-import by.bntu.fitr.model.connection.exception.ConnectionPoolException;
-import by.bntu.fitr.model.entity.OptionalQuestion;
-import by.bntu.fitr.model.entity.Question;
-import by.bntu.fitr.model.entity.Quiz;
-import by.bntu.fitr.model.entity.WritableQuestion;
+import by.bntu.fitr.cinemaquiz.model.connection.ConnectionPool;
+import by.bntu.fitr.cinemaquiz.model.connection.exception.ConnectionPoolException;
+import by.bntu.fitr.cinemaquiz.model.dao.exception.DaoException;
+import by.bntu.fitr.cinemaquiz.model.entity.OptionalQuestion;
+import by.bntu.fitr.cinemaquiz.model.entity.Question;
+import by.bntu.fitr.cinemaquiz.model.entity.Quiz;
+import by.bntu.fitr.cinemaquiz.model.entity.WritableQuestion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,8 +29,7 @@ public class QuizDaoImpl implements QuizDao {
 
 
     @Override
-    public List<Quiz> findAll() {
-        // TODO: 5/16/2021 Realizovat
+    public List<Quiz> findAll() throws DaoException {
         List<Quiz> quizList = new ArrayList<>();
         try(Connection connection = pool.takeConnection();
             PreparedStatement statement = connection.prepareStatement(FIND_ALL_QUIZ_STATEMENT)){
@@ -40,6 +40,7 @@ public class QuizDaoImpl implements QuizDao {
             }
         } catch (SQLException | ConnectionPoolException e){
             logger.error(e);
+            throw new DaoException(e);
         }
         return quizList;
     }
@@ -75,8 +76,9 @@ public class QuizDaoImpl implements QuizDao {
         String title = resultSet.getString(3);
         String correctAnswer = resultSet.getString(4);
         String type = resultSet.getString(5);
-        if (type.equals("")) {
+        if (type.equals("optional")) {
             List<String> options = findOptions(connection, id);
+            logger.debug("options={}", options);
             question = new OptionalQuestion(id, title, correctAnswer, options);
         } else {
             question = new WritableQuestion(id, title, correctAnswer);

@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.service;
+package by.bntu.fitr.cinemaquiz.model.service;
 
 public class ServiceProvider {
 

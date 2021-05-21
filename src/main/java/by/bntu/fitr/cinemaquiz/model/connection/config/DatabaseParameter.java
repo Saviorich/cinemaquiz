@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.connection.config;
+package by.bntu.fitr.cinemaquiz.model.connection.config;
 
 
 public final class DatabaseParameter {

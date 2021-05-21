@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.service.exception;
+package by.bntu.fitr.cinemaquiz.model.service.exception;
 
 public class ServiceException extends Exception {
     public ServiceException() {

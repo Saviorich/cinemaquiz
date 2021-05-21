@@ -914,6 +914,7 @@ SELECT|sys.sys_config
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="288" parent="284" name="question_id">
       <Position>2</Position>
@@ -943,6 +944,7 @@ SELECT|sys.sys_config
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="294" parent="285" name="quiz_id">
       <Position>2</Position>
@@ -951,7 +953,7 @@ SELECT|sys.sys_config
     </column>
     <column id="295" parent="285" name="title">
       <Position>3</Position>
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>varchar(145)|0s</DataType>
     </column>
     <column id="296" parent="285" name="correct_answer">
       <Position>4</Position>
@@ -959,42 +961,39 @@ SELECT|sys.sys_config
     </column>
     <column id="297" parent="285" name="type">
       <Position>5</Position>
-      <DataType>enum(&apos;writable&apos;, &apos;optonal&apos;)|0e</DataType>
+      <DataType>enum(&apos;writable&apos;, &apos;optional&apos;)|0e</DataType>
     </column>
-    <column id="298" parent="285" name="questioncol">
-      <Position>6</Position>
-      <DataType>varchar(45)|0s</DataType>
-    </column>
-    <index id="299" parent="285" name="quiz_id_idx">
+    <index id="298" parent="285" name="quiz_id_idx">
       <ColNames>quiz_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="300" parent="285" name="PRIMARY">
+    <key id="299" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="301" parent="285" name="quiz_id">
+    <foreign-key id="300" parent="285" name="quiz_id">
       <ColNames>quiz_id</ColNames>
       <RefTableName>quiz</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="302" parent="286" name="id">
+    <column id="301" parent="286" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="303" parent="286" name="titile">
+    <column id="302" parent="286" name="title">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="304" parent="286" name="image_path">
+    <column id="303" parent="286" name="image_path">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
     </column>
-    <key id="305" parent="286" name="PRIMARY">
+    <key id="304" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

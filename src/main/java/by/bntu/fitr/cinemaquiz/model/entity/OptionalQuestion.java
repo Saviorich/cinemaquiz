@@ -1,6 +1,4 @@
-package by.bntu.fitr.model.entity;
-
-import com.mysql.cj.util.StringUtils;
+package by.bntu.fitr.cinemaquiz.model.entity;
 
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +8,8 @@ public class OptionalQuestion extends Question {
     private List<String> options;
 
     public OptionalQuestion(long id, String title, String correctAnswer, List<String> options) {
+        super(id, title, correctAnswer);
+        this.options = options;
     }
 
     public OptionalQuestion(String title, String correctAnswer, List<String> options) {
@@ -26,5 +26,13 @@ public class OptionalQuestion extends Question {
 
     public List<String> getOptions() {
         return getOptions(false);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("OptionalQuestion{");
+        sb.append("options=").append(options);
+        sb.append('}');
+        return sb.toString();
     }
 }

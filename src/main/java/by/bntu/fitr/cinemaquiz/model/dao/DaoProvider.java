@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.dao;
+package by.bntu.fitr.cinemaquiz.model.dao;
 
 public final class DaoProvider {
 

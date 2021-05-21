@@ -2,12 +2,8 @@ package by.bntu.fitr.cinemaquiz.controller;
 
 import by.bntu.fitr.cinemaquiz.controller.command.Command;
 import by.bntu.fitr.cinemaquiz.controller.command.CommandProvider;
-import by.bntu.fitr.model.entity.Quiz;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

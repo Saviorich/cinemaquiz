@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.entity;
+package by.bntu.fitr.cinemaquiz.model.entity;
 
 import java.util.List;
 

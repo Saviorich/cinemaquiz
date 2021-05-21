@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.connection.config;
+package by.bntu.fitr.cinemaquiz.model.connection.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

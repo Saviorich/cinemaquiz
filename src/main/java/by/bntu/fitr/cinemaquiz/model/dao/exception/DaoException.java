@@ -1,4 +1,4 @@
-package by.bntu.fitr.model.dao.exception;
+package by.bntu.fitr.cinemaquiz.model.dao.exception;
 
 public class DaoException extends Exception {
     public DaoException() {

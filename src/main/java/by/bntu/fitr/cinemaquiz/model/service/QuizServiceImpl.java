@@ -1,11 +1,11 @@
-package by.bntu.fitr.model.service;
+package by.bntu.fitr.cinemaquiz.model.service;
 
-import by.bntu.fitr.model.dao.DaoProvider;
-import by.bntu.fitr.model.dao.QuizDao;
-import by.bntu.fitr.model.dao.exception.DaoException;
-import by.bntu.fitr.model.entity.Question;
-import by.bntu.fitr.model.entity.Quiz;
-import by.bntu.fitr.model.service.exception.ServiceException;
+import by.bntu.fitr.cinemaquiz.model.dao.DaoProvider;
+import by.bntu.fitr.cinemaquiz.model.dao.QuizDao;
+import by.bntu.fitr.cinemaquiz.model.dao.exception.DaoException;
+import by.bntu.fitr.cinemaquiz.model.entity.Question;
+import by.bntu.fitr.cinemaquiz.model.entity.Quiz;
+import by.bntu.fitr.cinemaquiz.model.service.exception.ServiceException;
 
 import java.util.List;
 

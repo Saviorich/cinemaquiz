@@ -1,8 +1,9 @@
-package by.bntu.fitr.model.connection;
+package by.bntu.fitr.cinemaquiz.model.connection;
 
-import by.bntu.fitr.model.connection.config.DatabaseParameter;
-import by.bntu.fitr.model.connection.config.DatabaseResourceManager;
-import by.bntu.fitr.model.connection.exception.ConnectionPoolException;
+import by.bntu.fitr.cinemaquiz.model.connection.config.DatabaseParameter;
+import by.bntu.fitr.cinemaquiz.model.connection.config.DatabaseResourceManager;
+import by.bntu.fitr.cinemaquiz.model.connection.exception.ConnectionPoolException;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
