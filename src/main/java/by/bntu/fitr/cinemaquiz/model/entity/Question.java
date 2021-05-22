@@ -59,7 +59,7 @@ public abstract class Question {
     }
 
     public boolean isCorrect() {
-        return userAnswer.equalsIgnoreCase(correctAnswer);
+        return correctAnswer.equalsIgnoreCase(userAnswer);
     }
 
     public abstract String toString();
