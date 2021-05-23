@@ -16,6 +16,7 @@ public final class CommandProvider {
         commands.put(CommandName.CREATEQUIZ, new CreateQuizCommand());
         commands.put(CommandName.GOTOQUIZEDITOR, new GoToQuizEditorCommand());
         commands.put(CommandName.ANSWER, new AnswerCommand());
+        commands.put(CommandName.FINISHQUIZ, new FinishQuizCommand());
     }
 
     public static CommandProvider getInstance() {
