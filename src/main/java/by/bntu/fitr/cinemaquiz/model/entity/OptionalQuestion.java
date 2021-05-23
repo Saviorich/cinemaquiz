@@ -29,9 +29,15 @@ public class OptionalQuestion extends Question {
     }
 
     @Override
+    public String getType() {
+        return getClass().getSimpleName();
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("OptionalQuestion{");
         sb.append("options=").append(options);
+        sb.append(", userAnswer=").append(getUserAnswer());
         sb.append('}');
         return sb.toString();
     }

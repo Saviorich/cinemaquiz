@@ -24,7 +24,7 @@ public class Quiz {
     }
 
     public boolean isDone() {
-        return done;
+        return questionList.stream().allMatch(question -> question.getUserAnswer() != null);
     }
 
     public void setDone(boolean done) {

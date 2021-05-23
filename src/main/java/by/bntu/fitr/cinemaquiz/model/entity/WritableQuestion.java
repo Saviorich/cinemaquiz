@@ -6,6 +6,11 @@ public class WritableQuestion extends Question {
         super(id, title, correctAnswer);
     }
 
+    @Override
+    public String getType() {
+        return getClass().getSimpleName();
+    }
+
     public WritableQuestion(String title, String correctAnswer) {
         super(title, correctAnswer);
     }

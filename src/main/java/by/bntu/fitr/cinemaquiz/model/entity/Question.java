@@ -62,5 +62,7 @@ public abstract class Question {
         return correctAnswer.equalsIgnoreCase(userAnswer);
     }
 
+    public abstract String getType();
+
     public abstract String toString();
 }

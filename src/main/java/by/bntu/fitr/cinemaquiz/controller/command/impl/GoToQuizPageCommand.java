@@ -29,6 +29,7 @@ public class GoToQuizPageCommand implements by.bntu.fitr.cinemaquiz.controller.c
             if (quizId != ((Quiz) session.getAttribute("quiz")).getId()) {
                 session.setAttribute("quiz", quizService.getById(quizId));
             }
+            logger.debug("question={}", question);
             request.setAttribute("question", question);
         } catch (ServiceException e) {
             logger.error(e);
