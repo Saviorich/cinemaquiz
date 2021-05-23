@@ -12,11 +12,9 @@
 </head>
 <body>
 <form action="Upload" method="post">
-    <div class="header">
-        <span><label for="i1">Название викторины:<input id="i1" class="quiz_name_input" name="quiz_name"></label></span>
-        <span><label for="s1">
-            Количество вопросов:
-            <select id="s1" name="question_amount" onchange="selectOnChange()">
+    <div class="quiz_header">
+        <span class="header-content"><p>Название викторины:</p><input id="i1" class="quiz_name_input" name="quiz_name"></span>
+        <span class="header-content"><p>Количество вопросов:</p><select id="s1" name="question_amount" onchange="selectOnChange()">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -27,9 +25,8 @@
                 <option>8</option>
                 <option>9</option>
                 <option>10</option>
-            </select>
-        </label></span>
-        <input type="file" name="image_path">
+            </select></span><br/>
+        <span class="header-content"><input type="file" name="image_path"></span>
     </div>
 
     <div class="creator_block">
