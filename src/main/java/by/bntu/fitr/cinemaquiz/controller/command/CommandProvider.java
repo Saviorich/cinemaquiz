@@ -1,6 +1,8 @@
 package by.bntu.fitr.cinemaquiz.controller.command;
 
+import by.bntu.fitr.cinemaquiz.controller.command.impl.CreateQuizCommand;
 import by.bntu.fitr.cinemaquiz.controller.command.impl.GoToMainPageCommand;
+import by.bntu.fitr.cinemaquiz.controller.command.impl.GoToQuizEditorCommand;
 import by.bntu.fitr.cinemaquiz.controller.command.impl.GoToQuizPageCommand;
 
 import java.util.EnumMap;
@@ -14,6 +16,8 @@ public final class CommandProvider {
     private CommandProvider() {
         commands.put(CommandName.GOTOMAINPAGE, new GoToMainPageCommand());
         commands.put(CommandName.GOTOQUIZPAGE, new GoToQuizPageCommand());
+        commands.put(CommandName.CREATEQUIZ, new CreateQuizCommand());
+        commands.put(CommandName.GOTOQUIZEDITOR, new GoToQuizEditorCommand());
     }
 
     public static CommandProvider getInstance() {

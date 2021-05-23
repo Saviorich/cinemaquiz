@@ -8,6 +8,15 @@ h1 {
     color: limegreen;
 }
 
+.panel {
+    margin: 0 auto;
+    width: fit-content;
+
+    text-align: center;
+    font-size: 26px;
+    background: lightgreen;
+}
+
 .main_container {
     display: flex;
     flex-wrap: wrap;

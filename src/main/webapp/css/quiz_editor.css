@@ -1,0 +1,39 @@
+body {
+    font-family: Verdana, monospace;
+}
+
+.creator_block {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 20px;
+
+    background: grey;
+
+    display: flex;
+    flex-flow: wrap;
+}
+
+.question_creator {
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background: whitesmoke;
+
+    width: fit-content;
+
+    margin: 10px auto;
+}
+
+.option {
+    margin: 5px;
+}
+
+input[type=text] {
+    width: 200px;
+    height: 30px;
+
+    font-size: 20px;
+
+    margin: 5px;
+}
