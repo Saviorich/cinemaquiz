@@ -16,7 +16,7 @@
         <label for="i1">Название викторины:<input id="i1" class="quiz_name_input" name="quiz_name"></label><br/>
         <label for="s1">
             Количество вопросов:
-            <select id="s1" onchange="selectOnChange()">
+            <select id="s1" name="question_amount" onchange="selectOnChange()">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -30,7 +30,7 @@
             </select>
         </label><br/>
     </div>
-    <div class="creator_block"></div>
+    <div class="creator_block"><script>selectOnChange()</script></div>
     <input type="hidden" name="command" value="createquiz">
     <input type="submit" value="Submit">
 </form>

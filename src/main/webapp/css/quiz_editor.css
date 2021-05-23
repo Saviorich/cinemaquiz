@@ -34,6 +34,10 @@ body {
     margin: 5px;
 }
 
+.creator_footer {
+    float: bottom;
+}
+
 input[type=text] {
     width: 200px;
     height: 30px;

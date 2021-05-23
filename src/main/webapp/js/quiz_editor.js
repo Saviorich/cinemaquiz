@@ -37,6 +37,6 @@ function createQuestionCreator(number) {
                     <span class="option"><input name="r${number}" type="radio" value="3" required> Option 4: <input name="Option4ForQuestion${number}" type="text"><br/></span>
                 </div>
                 <hr>
-                <span><label for="i3">Writable:<input id="i3" type="checkbox" class="type" name="question_type" onchange="a(this, ${number})"></label></span>
+                <span class="creator_footer"><label for="i3${number}">Writable:<input id="i3${number}" type="checkbox" class="type" name="question_type" onchange="a(this, ${number})"></label></span>
             </div>`
 }
