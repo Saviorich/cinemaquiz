@@ -11,7 +11,7 @@ function selectOnChange() {
 function a(doc, number) {
     if (doc.checked) {
         $(`.question_creator_body${number}`).html(
-            `<span style="margin: 10px"><label for="i2">Answer:<input id="i2" name="correct_answer${number}" class="writable_answer" type="text"></label></span>`
+            `<span style="margin: 10px"><label for="i2">Answer:<input id="i2" name="correct_answer${number}" class="writable_answer" type="text" required></label></span>`
         );
     } else {
         $(`.question_creator_body${number}`).html(
@@ -28,7 +28,7 @@ function createQuestionCreator(number) {
     return `<div class="question_creator">
                 <label>
                     Question ${number + 1}:
-                    <input type="text" name="question_title" maxlength="145">
+                    <input type="text" name="question_title${number}" maxlength="145">
                 </label><hr>
                 <div class="question_creator_body${number}">
                     <span class="option"><input name="r${number}" type="radio" value="1" required> Option 1: <input name="Option1ForQuestion${number}" type="text"><br/></span>

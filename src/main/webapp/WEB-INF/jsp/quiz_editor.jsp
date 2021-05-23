@@ -13,8 +13,8 @@
 <body>
 <form action="Upload" method="post" enctype="multipart/form-data">
     <div class="quiz_header">
-        <span class="header-content"><p>Название викторины:</p><input id="i1" class="quiz_name_input" name="quiz_name"></span>
-        <span class="header-content"><p>Количество вопросов:</p><select id="s1" name="question_amount" onchange="selectOnChange()">
+        <span class="header-content"><p>Название викторины:</p><input id="i1" class="quiz_name_input" name="quiz_name" required></span>
+        <span class="header-content"><p>Количество вопросов:</p><select id="s1" name="question_amount" onchange="selectOnChange()" required>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>

@@ -26,6 +26,7 @@ public class CreateQuizCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
+            logger.debug(request.getParameterMap().keySet());
             String title = request.getParameter("quiz_name");
             String imagePath = (String) request.getAttribute("image_path");
             int questionAmount = Integer.parseInt(request.getParameter("question_amount"));
