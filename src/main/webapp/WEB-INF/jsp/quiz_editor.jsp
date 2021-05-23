@@ -11,23 +11,28 @@
     <link rel="stylesheet" href="css/quiz_editor.css" type="text/css">
 </head>
 <body>
-<label for="s1">
-    Количество вопросов:
-    <select id="s1" onchange="selectOnChange()">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-    </select>
-</label>
-<div class="creator_block">
-
-</div>
+<form action="Controller" method="post">
+    <div class="header">
+        <label for="i1">Название викторины:<input id="i1" class="quiz_name_input" name="quiz_name"></label><br/>
+        <label for="s1">
+            Количество вопросов:
+            <select id="s1" onchange="selectOnChange()">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+        </label><br/>
+    </div>
+    <div class="creator_block"></div>
+    <input type="hidden" name="command" value="createquiz">
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
