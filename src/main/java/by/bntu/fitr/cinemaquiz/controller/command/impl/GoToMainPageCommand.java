@@ -12,7 +12,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 public class GoToMainPageCommand implements Command {
@@ -24,6 +23,7 @@ public class GoToMainPageCommand implements Command {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
+            request.getSession().invalidate();
             List<Quiz> quizList = quizService.findAll();
             request.getSession().setAttribute("quizList", quizList);
             request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);

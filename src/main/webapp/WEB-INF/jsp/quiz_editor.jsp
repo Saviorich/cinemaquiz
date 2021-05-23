@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/quiz_editor.css" type="text/css">
 </head>
 <body>
-<form action="Upload" method="post">
+<form action="Upload" method="post" enctype="multipart/form-data">
     <div class="quiz_header">
         <span class="header-content"><p>Название викторины:</p><input id="i1" class="quiz_name_input" name="quiz_name"></span>
         <span class="header-content"><p>Количество вопросов:</p><select id="s1" name="question_amount" onchange="selectOnChange()">

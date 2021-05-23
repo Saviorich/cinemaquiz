@@ -10,4 +10,6 @@ public interface QuizService {
     List<Quiz> findAll() throws ServiceException;
     void createQuiz(String title, String imagePath, List<Question> questions) throws ServiceException;
     double calculatePercentage(Quiz quiz);
+
+    Quiz getById(int quizId)throws ServiceException;
 }

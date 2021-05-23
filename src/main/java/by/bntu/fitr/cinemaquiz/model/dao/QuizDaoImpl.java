@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class QuizDaoImpl implements QuizDao {
     private static final Logger logger = LogManager.getLogger();
@@ -21,6 +22,7 @@ public class QuizDaoImpl implements QuizDao {
     private static final String WRITABLE_TYPE = "writable";
     private static final String FIND_ALL_QUIZ_STATEMENT =
             "SELECT * FROM quiz";
+    private static final String FIND_BY_ID = "SELECT * FROM quiz WHERE id=?";
     private static final String FIND_QUIZ_QUESTIONS_STATEMENT =
             "SELECT * FROM question WHERE quiz_id=?";
     private static final String FIND_OPTIONS_STATEMENT=
@@ -117,6 +119,25 @@ public class QuizDaoImpl implements QuizDao {
         }
     }
 
+    @Override
+    public Optional<Quiz> getById(int id) throws DaoException {
+        Optional<Quiz> quizList = Optional.empty();
+        try(Connection connection = pool.takeConnection();
+            PreparedStatement statement = connection.prepareStatement(FIND_BY_ID))
+        {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()){
+                Quiz quiz = createQuiz(connection, resultSet);
+                quizList = Optional.of(quiz);
+            }
+        } catch (SQLException | ConnectionPoolException e){
+            logger.error(e);
+            throw new DaoException(e);
+        }
+        return quizList;
+    }
+
     private void insertOptions(Connection connection, long id, List<String> options) throws SQLException{
         try (PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_OPTION)){
             for (String option: options){
@@ -160,7 +181,6 @@ public class QuizDaoImpl implements QuizDao {
         String type = resultSet.getString(5);
         if (type.equals("optional")) {
             List<String> options = findOptions(connection, id);
-            logger.debug("options={}", options);
             question = new OptionalQuestion(id, title, correctAnswer, options);
         } else {
             question = new WritableQuestion(id, title, correctAnswer);

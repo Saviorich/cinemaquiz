@@ -42,4 +42,13 @@ public class QuizServiceImpl implements QuizService {
         }
         return (double) correctAmount / quizSize;
     }
+
+    @Override
+    public Quiz getById(int quizId) throws ServiceException {
+        try {
+            return quizDao.getById(quizId).get();
+        } catch (Exception e) {
+            throw new ServiceException();
+        }
+    }
 }

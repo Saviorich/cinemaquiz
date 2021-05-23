@@ -23,7 +23,7 @@
                     </c:if>
                 </div>
                 <div class="quiz_block_panel">
-                    <a href="Controller?command=gotoquizpage&data_id=${n.id}">Начать!</a>
+                    <a href="Controller?command=gotoquizpage&question=1&data_id=${n.id}" onclick="<c:set var='quiz' value='${n}' scope='session'/>">Начать!</a>
                 </div>
             </div>
         </c:forEach>

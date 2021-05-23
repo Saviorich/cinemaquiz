@@ -20,24 +20,26 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@WebServlet(name="Upload", value = "/Upload" )
+@WebServlet(name="Upload", urlPatterns = "/Upload")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 5,
         maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FileUploadingServlet extends HttpServlet {
 
-
     private static final Logger logger = LogManager.getLogger(FileUploadingServlet.class);
     private static final CommandProvider provider = CommandProvider.getInstance();
-    private static final String IMAGE_EDITOR_PART = "image_editor";
+    private static final String IMAGE_EDITOR_PART = "image_path";
     private static final String IMAGES_DIRECTORY_NAME = "img";
     private static final String UPLOAD_DIR = "D:\\java_projects\\jwd_final_project\\cinemaquiz\\src\\main\\webapp\\"
             + IMAGES_DIRECTORY_NAME;
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        logger.debug(request.getParameter("command"));
 
         if (ServletFileUpload.isMultipartContent(request)) {
+            logger.debug("Here2");
+
             Part part = request.getPart(IMAGE_EDITOR_PART);
             String filename = part.getSubmittedFileName();
             String upload_path = UPLOAD_DIR + File.separator + filename;
@@ -47,6 +49,8 @@ public class FileUploadingServlet extends HttpServlet {
             if (Files.exists(Paths.get(upload_path + filename).toAbsolutePath())) {
                 imagePath = request.getParameter("image_path");
             }
+
+            logger.debug("Image path: " + imagePath);
 
             boolean isSuccess;
             try (InputStream inputStream = part.getInputStream()) {
@@ -93,6 +97,8 @@ public class FileUploadingServlet extends HttpServlet {
 
         name = request.getParameter("command");
         command = provider.takeCommand(name);
+
+        logger.debug("name={}, class={}", name, command);
 
         command.execute(request, response);
     }
