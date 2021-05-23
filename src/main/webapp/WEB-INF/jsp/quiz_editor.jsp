@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="css/quiz_editor.css" type="text/css">
 </head>
 <body>
-<form action="Controller" method="post">
+<form action="Upload" method="post">
     <div class="header">
-        <label for="i1">Название викторины:<input id="i1" class="quiz_name_input" name="quiz_name"></label><br/>
-        <label for="s1">
+        <span><label for="i1">Название викторины:<input id="i1" class="quiz_name_input" name="quiz_name"></label></span>
+        <span><label for="s1">
             Количество вопросов:
             <select id="s1" name="question_amount" onchange="selectOnChange()">
                 <option>1</option>
@@ -28,9 +28,13 @@
                 <option>9</option>
                 <option>10</option>
             </select>
-        </label><br/>
+        </label></span>
+        <input type="file" name="image_path">
     </div>
-    <div class="creator_block"><script>selectOnChange()</script></div>
+
+    <div class="creator_block">
+        <script>selectOnChange()</script>
+    </div>
     <input type="hidden" name="command" value="createquiz">
     <input type="submit" value="Submit">
 </form>
