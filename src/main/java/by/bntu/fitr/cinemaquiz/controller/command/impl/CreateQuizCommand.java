@@ -35,8 +35,8 @@ public class CreateQuizCommand implements Command {
                 String questionTitle = request.getParameter("question_title");
                 String correctAnswer;
                 Question question;
-                boolean isWritable = request.getParameter("question_type" + i).equals("on");
-                if (!isWritable) {
+                String type = request.getParameter("question_type" + i);
+                if (type != null && type.equals("on")) {
                     List<String> options = new ArrayList<>();
                     String correctOption = request.getParameter("r" + i);
                     correctAnswer = request.getParameter("Option" + correctOption + "ForQuestion" + i);
