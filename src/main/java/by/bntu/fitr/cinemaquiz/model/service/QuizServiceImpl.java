@@ -23,6 +23,15 @@ public class QuizServiceImpl implements QuizService {
     }
 
     @Override
+    public void createQuiz(String title, String imagePath, List<Question> questions) throws ServiceException {
+        try{
+            quizDao.createQuiz(title, imagePath, questions);
+        } catch (DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
     public double calculatePercentage(Quiz quiz) {
         int quizSize = quiz.getQuestionList().size();
         int correctAmount = 0;

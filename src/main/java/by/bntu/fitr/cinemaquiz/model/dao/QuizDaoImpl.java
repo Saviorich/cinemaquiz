@@ -10,22 +10,24 @@ import by.bntu.fitr.cinemaquiz.model.entity.WritableQuestion;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuizDaoImpl implements QuizDao {
     private static final Logger logger = LogManager.getLogger();
     private static final ConnectionPool pool = ConnectionPool.getInstance();
+    private static final String OPTIONAL_TYPE = "optional";
+    private static final String WRITABLE_TYPE = "writable";
     private static final String FIND_ALL_QUIZ_STATEMENT =
             "SELECT * FROM quiz";
     private static final String FIND_QUIZ_QUESTIONS_STATEMENT =
             "SELECT * FROM question WHERE quiz_id=?";
     private static final String FIND_OPTIONS_STATEMENT=
             "SELECT content FROM `option` WHERE question_id=?";
+    private static final String ADD_NEW_QUIZ_STATEMENT = "INSERT INTO quiz (title, image_path) VALUES (?, ?)";
+    private static final String ADD_NEW_QUESTION_STATEMENT = "INSERT INTO question(title, quiz_id, correct_answer, `type`) VALUES (?, ?, ?, ?)";
+    private static final String ADD_NEW_OPTION = "INSERT INTO `option`(question_id, content) VALUES (?, ?)";
 
 
     @Override
@@ -43,6 +45,86 @@ public class QuizDaoImpl implements QuizDao {
             throw new DaoException(e);
         }
         return quizList;
+    }
+
+    @Override
+    public void createQuiz(String title, String imagePath, List<Question> questions) throws DaoException {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = pool.takeConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(ADD_NEW_QUIZ_STATEMENT, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, title);
+            statement.setString(2, imagePath);
+            statement.executeUpdate();
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            long id = 0;
+            if (generatedKeys.next()) {
+                id = generatedKeys.getLong(1);
+            }
+            statement.close();
+            statement = connection.prepareStatement(ADD_NEW_QUESTION_STATEMENT, Statement.RETURN_GENERATED_KEYS);
+            for (Question question : questions) {
+                statement.setString(1, question.getTitle());
+                statement.setLong(2, id);
+                statement.setString(3,  question.getCorrectAnswer());
+                String type;
+                if (question instanceof OptionalQuestion){
+                    type = OPTIONAL_TYPE;
+                } else {
+                    type = WRITABLE_TYPE;
+                }
+                statement.setString(4, type);
+                statement.executeUpdate();
+                if (type.equals(OPTIONAL_TYPE)){
+                    ResultSet generatedKeysQuestion = statement.getGeneratedKeys();
+                    long questionId = 0;
+                    if (generatedKeysQuestion.next()) {
+                        questionId = generatedKeysQuestion.getLong(1);
+                    }
+                    insertOptions(connection, questionId, ((OptionalQuestion) question).getOptions());
+                }
+            }
+            connection.commit();
+        } catch (SQLException | ConnectionPoolException e) {
+            logger.error(e);
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    logger.error(ex);
+                    throw new DaoException(ex);
+                }
+            }
+            throw new DaoException(e);
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException throwable) {
+                    logger.error(throwable);
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                } catch (SQLException e) {
+                    logger.error(e);
+                }
+            }
+        }
+    }
+
+    private void insertOptions(Connection connection, long id, List<String> options) throws SQLException{
+        try (PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_OPTION)){
+            for (String option: options){
+                preparedStatement.setLong(1, id);
+                preparedStatement.setString(2, option);
+                preparedStatement.executeUpdate();
+            }
+        }
     }
 
     private List<String> findOptions(Connection connection, long questionId) throws SQLException {
