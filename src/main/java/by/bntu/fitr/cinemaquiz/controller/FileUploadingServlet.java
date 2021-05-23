@@ -30,7 +30,7 @@ public class FileUploadingServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(FileUploadingServlet.class);
     private static final CommandProvider provider = CommandProvider.getInstance();
     private static final String IMAGE_EDITOR_PART = "image_editor";
-    private static final String IMAGES_DIRECTORY_NAME = "images";
+    private static final String IMAGES_DIRECTORY_NAME = "img";
     private static final String UPLOAD_DIR = "D:\\java_projects\\jwd_final_project\\cinemaquiz\\src\\main\\webapp\\"
             + IMAGES_DIRECTORY_NAME;
 
