@@ -11,7 +11,7 @@ function selectOnChange() {
 function a(doc, number) {
     if (doc.checked) {
         $(`.question_creator_body${number}`).html(
-            `<span style="margin: 10px"><label for="i2">Answer:<input id="i2" name="correct_answer" class="writable_answer" type="text"></label></span>`
+            `<span style="margin: 10px"><label for="i2">Answer:<input id="i2" name="correct_answer${number}" class="writable_answer" type="text"></label></span>`
         );
     } else {
         $(`.question_creator_body${number}`).html(
