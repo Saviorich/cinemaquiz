@@ -31,10 +31,10 @@ function createQuestionCreator(number) {
                     <input type="text" name="question_title" maxlength="145">
                 </label><hr>
                 <div class="question_creator_body${number}">
-                    <span class="option"><input name="r${number}" type="radio" value="0" required> Option 1: <input name="Option1ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="1" required> Option 2: <input name="Option2ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="2" required> Option 3: <input name="Option3ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="3" required> Option 4: <input name="Option4ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="1" required> Option 1: <input name="Option1ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="2" required> Option 2: <input name="Option2ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="3" required> Option 3: <input name="Option3ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="4" required> Option 4: <input name="Option4ForQuestion${number}" type="text"><br/></span>
                 </div>
                 <hr>
                 <span class="creator_footer"><label for="i3${number}">Writable:<input id="i3${number}" type="checkbox" class="type" name="question_type" onchange="a(this, ${number})"></label></span>
