@@ -15,10 +15,10 @@ function a(doc, number) {
         );
     } else {
         $(`.question_creator_body${number}`).html(
-           `<span class="option"><input name="r${number}" type="radio" value="0" required> Option 1: <input name="Option1ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="1" required> Option 2: <input name="Option2ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="2" required> Option 3: <input name="Option3ForQuestion${number}" type="text"><br/></span>
-                    <span class="option"><input name="r${number}" type="radio" value="3" required> Option 4: <input name="Option4ForQuestion${number}" type="text"><br/></span>
+           `<span class="option"><input name="r${number}" type="radio" value="1" required> Option 1: <input name="Option1ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="2" required> Option 2: <input name="Option2ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="3" required> Option 3: <input name="Option3ForQuestion${number}" type="text"><br/></span>
+                    <span class="option"><input name="r${number}" type="radio" value="4" required> Option 4: <input name="Option4ForQuestion${number}" type="text"><br/></span>
                 `
         );
     }
