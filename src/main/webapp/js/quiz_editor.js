@@ -27,7 +27,7 @@ function a(doc, number) {
 function createQuestionCreator(number) {
     return `<div class="question_creator">
                 <label>
-                    Question ${number + 1}:
+                    Question ${number}:
                     <input type="text" name="question_title${number}" maxlength="145">
                 </label><hr>
                 <div class="question_creator_body${number}">

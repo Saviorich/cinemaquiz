@@ -8,7 +8,7 @@
 <body>
     <h1>Викторины по фильмам</h1>
     <div class="panel">
-        <a href="Controller?command=gotoquizeditor">Создать виктарину</a>
+        <a href="Controller?command=gotoquizeditor">Создать викторину</a>
     </div>
     <div class="main_container">
         <c:forEach var="n" items="${sessionScope.quizList}">

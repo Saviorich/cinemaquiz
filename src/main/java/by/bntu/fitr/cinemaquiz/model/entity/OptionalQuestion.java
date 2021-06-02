@@ -1,5 +1,6 @@
 package by.bntu.fitr.cinemaquiz.model.entity;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class OptionalQuestion extends Question {
         sb.append("options=").append(options);
         sb.append(", userAnswer=").append(getUserAnswer());
         sb.append('}');
+
         return sb.toString();
     }
 }

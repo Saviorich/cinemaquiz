@@ -19,6 +19,7 @@ public class FinishQuizCommand implements Command {
         Quiz quiz = (Quiz) request.getSession().getAttribute("quiz");
 
         double perc = quizService.calculatePercentage(quiz);
+        request.setAttribute("quiz", quiz);
         request.setAttribute("result", perc);
         request.getRequestDispatcher("/WEB-INF/jsp/result.jsp").forward(request, response);
     }

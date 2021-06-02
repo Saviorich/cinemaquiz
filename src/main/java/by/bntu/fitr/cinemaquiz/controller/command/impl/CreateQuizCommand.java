@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class CreateQuizCommand implements Command {
     private static final Logger logger = LogManager.getLogger();
@@ -26,17 +28,19 @@ public class CreateQuizCommand implements Command {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            logger.debug(request.getParameterMap().keySet());
+            for (Map.Entry<String, String[]> pair: request.getParameterMap().entrySet()){
+                logger.debug("key:{}, values: {}", pair.getKey(), Arrays.toString(pair.getValue()));
+            }
             String title = request.getParameter("quiz_name");
             String imagePath = (String) request.getAttribute("image_path");
             int questionAmount = Integer.parseInt(request.getParameter("question_amount"));
             List<Question> questions = new ArrayList<>();
             for (int i = 1; i <= questionAmount; i++) {
-                String questionTitle = request.getParameter("question_title");
+                String questionTitle = request.getParameter("question_title" + i);
                 String correctAnswer;
                 Question question;
                 String type = request.getParameter("question_type" + i);
-                if (type != null && type.equals("on")) {
+                if (type == null || !type.equals("on")) {
                     List<String> options = new ArrayList<>();
                     String correctOption = request.getParameter("r" + i);
                     correctAnswer = request.getParameter("Option" + correctOption + "ForQuestion" + i);

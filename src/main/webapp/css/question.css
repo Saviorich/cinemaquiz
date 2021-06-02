@@ -43,6 +43,11 @@ body {
     width: 100%;
 }
 
+.b:hover {
+    transition: .4s;
+    opacity: .7;
+}
+
 .options  {
     margin: 10px 0 2px 5px;
     text-align: left;
